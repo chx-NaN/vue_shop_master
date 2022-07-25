@@ -1,21 +1,21 @@
 <template>
   <div class="login_container">
     <div class="login_box">
-      <!--      头像区域-->
+      <!-- 头像区域 -->
       <div class="avatar_box">
         <img src="~assets/logo.png" alt="" />
       </div>
-      <!--      表单提交区域-->
+      <!-- 表单提交区域 -->
       <el-form :rules="loginFormRules" ref="loginFormRef" label-width="0px" class="login_form" :model="loginForm">
-        <!--        用户名-->
+        <!-- 用户名 -->
         <el-form-item prop="username">
           <el-input v-model="loginForm.username" prefix-icon="iconfont icon-user"></el-input>
         </el-form-item>
-        <!--        密码-->
+        <!-- 密码 -->
         <el-form-item prop="password">
-          <el-input type="password" v-model="loginForm.password" prefix-icon="iconfont icon-3702mima"></el-input>
+          <el-input show-password v-model="loginForm.password" prefix-icon="iconfont icon-3702mima"></el-input>
         </el-form-item>
-        <!--        按钮区-->
+        <!-- 按钮区 -->
         <el-form-item class="btns">
           <el-button type="primary" @click="login" :loading="loginLoading">登录</el-button>
           <el-button type="info" @click="resetLoginForm">重置</el-button>
@@ -36,6 +36,7 @@ export default {
         username: 'admin',
         password: '123456'
       },
+      // 表单的验证规则对象
       loginFormRules: {
         // 验证用户名是否合法
         username: [
@@ -91,6 +92,12 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  // 下述代码同样可实现居中
+  // left: 0;
+  // right: 0;
+  // top: 0;
+  // bottom: 0;
+  // margin: auto;
   width: 450px;
   height: 300px;
   background-color: #fff;

@@ -8,14 +8,15 @@
       </div>
       <el-button type="info" @click="logout">退出</el-button>
     </el-header>
+    <!-- 页面主体区域 -->
     <el-container>
       <!-- 侧边栏 -->
       <el-aside :width="isCollapse ? '61px' : '200px'">
         <div class="toggle-button" @click="toggleCollpase">|||</div>
         <!-- 侧边栏菜单区域 -->
         <el-menu
-          background-color="#333744"
-          text-color="#fff"
+          background-color="rgb(48,65,86)"
+          text-color="#bfcbd9"
           active-text-color="#409EFF"
           :unique-opened="true"
           :collapse="isCollapse"
@@ -33,12 +34,12 @@
               <span>{{ item.authName }}</span>
             </template>
             <!-- 二级菜单 -->
-            <el-menu-item :index="'/' + sunItem.path" v-for="sunItem in item.children" :key="sunItem.id" @click="saveActivePath('/' + sunItem.path)">
+            <el-menu-item :index="'/' + subItem.path" v-for="subItem in item.children" :key="subItem.id" @click="saveActivePath('/' + subItem.path)">
               <template slot="title">
                 <!-- 二级菜单的模板区域 -->
                 <i class="el-icon-menu"></i>
                 <!-- 图标 -->
-                <span>{{ sunItem.authName }}</span>
+                <span>{{ subItem.authName }}</span>
                 <!-- 文本 -->
               </template>
             </el-menu-item>
@@ -140,11 +141,11 @@ export default {
   display: flex;
   justify-content: space-between;
   padding-left: 0;
-  background-color: #373d3f;
+  background-color: #304156;
   align-items: center;
   color: #fff;
   font-size: 20px;
-  > div {
+  div {
     display: flex;
     align-items: center;
     img {
@@ -158,7 +159,7 @@ export default {
   }
 }
 .el-aside {
-  background-color: #333744;
+  background-color: #304156;
   .el-menu {
     border-right: none;
   }
@@ -170,12 +171,16 @@ export default {
   padding-right: 10px;
 }
 .toggle-button {
-  background: #4a5064;
+  background: #304156;
   font-size: 10px;
   text-align: center;
   line-height: 24px;
   color: #fff;
   letter-spacing: 0.2em;
   cursor: pointer;
+}
+
+.el-menu:hover {
+  background-color: #111417 !important;
 }
 </style>
